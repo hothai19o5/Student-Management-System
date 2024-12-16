@@ -274,8 +274,10 @@ void docFile_BangBam(string tenFile, HashNode* hashTable[], int size) {
             int index = hashFunction(sv.maSV);
             HashNode* newNode = new HashNode(sv.maSV, newSV);
             if (hashTable[index] == nullptr) {
+                // Nếu không bị đụng độ thì thêm vào đầu danh sách liên kết
                 hashTable[index] = newNode;
             } else {
+                // Nếu bị đụng độ thì thêm vào cuối danh sách liên kết
                 HashNode* current = hashTable[index];
                 while (current->next != nullptr) {
                     current = current->next;
